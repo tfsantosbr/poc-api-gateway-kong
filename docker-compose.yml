@@ -42,7 +42,29 @@ services:
 
   # API GATEWAY
 
-  # TODO
+  kong:
+    build:
+      context: ./src/Kong
+      dockerfile: Dockerfile
+    volumes:
+      - ./config/kong:/kong/declarative
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+      - "8002:8002"
+      - "8443:8443"
+      - "8444:8444"
+    environment:
+      - KONG_DATABASE=off
+      - KONG_DECLARATIVE_CONFIG=/kong/declarative/kong.yml
+      - KONG_PROXY_ACCESS_LOG=/dev/stdout
+      - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+      - KONG_PROXY_ERROR_LOG=/dev/stderr
+      - KONG_ADMIN_ERROR_LOG=/dev/stderr
+      - KONG_ADMIN_LISTEN=0.0.0.0:8001
+      - KONG_ADMIN_SSL_LISTEN=0.0.0.0:8444
+    networks:
+      - api-gateway-net
 
   # OBSERVABILITY
 
