@@ -1,9 +1,112 @@
-_format_version: "2.1"
+_format_version: "3.0"
+_transform: true
+
+# plugins:
+#   - name: correlation-id
+#     config:
+#       header_name: CorrelationId
+#       generator: uuid#counter
+#       echo_downstream: false
+#   - name: oidc
+#     config:
+#       realm: "eventflix"
+#       client_id: "gateway-api"
+#       discovery: "http://keycloak:8080/realms/eventflix/.well-known/openid-configuration"
 
 services:
   - name: orders-service
-    url: http://orders-api:8080
+    protocol: http
+    host: orders-api
+    port: 8080
     routes:
-      - name: find-orders-route
+      - name: list-orders
+        methods:
+          - GET
+        paths:
+          - ~/orders$
+        strip_path: false
+        plugins:
+          - name: rate-limiting
+            config:
+              minute: 10
+              policy: local
+
+      - name: get-order-by-id
+        methods:
+          - GET
+        paths:
+          - ~/orders/[0-9]+$
+        strip_path: false
+
+      - name: create-order
+        methods:
+          - POST
         paths:
           - /orders
+        strip_path: false
+
+      - name: update-order
+        methods:
+          - PUT
+        paths:
+          - /orders
+        strip_path: false
+
+      - name: delete-order
+        methods:
+          - DELETE
+        paths:
+          - /orders
+        strip_path: false
+
+  - name: products-service
+    protocol: http
+    host: products-api
+    port: 8080
+    routes:
+      - name: list-categories
+        methods:
+          - GET
+        paths:
+          - /products/categories
+        strip_path: false
+
+      - name: list-products
+        methods:
+          - GET
+        paths:
+          - ~/products$
+        strip_path: false
+        plugins:
+          - name: rate-limiting
+            config:
+              minute: 10
+              policy: local
+
+      - name: get-product-by-id
+        methods:
+          - GET
+        paths:
+          - ~/products/[0-9]+$
+        strip_path: false
+
+      - name: create-product
+        methods:
+          - POST
+        paths:
+          - /products
+        strip_path: false
+
+      - name: update-product
+        methods:
+          - PUT
+        paths:
+          - /products
+        strip_path: false
+
+      - name: delete-product
+        methods:
+          - DELETE
+        paths:
+          - /products
+        strip_path: false

@@ -43,9 +43,7 @@ services:
   # API GATEWAY
 
   kong:
-    build:
-      context: ./src/Kong
-      dockerfile: Dockerfile
+    image: kong:3.9
     volumes:
       - ./config/kong:/kong/declarative
     ports:
@@ -63,6 +61,10 @@ services:
       - KONG_ADMIN_ERROR_LOG=/dev/stderr
       - KONG_ADMIN_LISTEN=0.0.0.0:8001
       - KONG_ADMIN_SSL_LISTEN=0.0.0.0:8444
+      - KONG_DNS_ORDER=LAST,A,CNAME
+      - KONG_DNS_STALE_TTL=60
+      - KONG_DNS_NOT_FOUND_TTL=30
+      - KONG_DNS_ERROR_TTL=1
     networks:
       - api-gateway-net
 

@@ -1,23 +1,23 @@
-@hostUrl = http://localhost:8080
+@hostUrl = http://localhost:8000
 @token = eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI2elR6dkFlbWFocXhEQ2g1ZVBwRHFZUEpSbDVkVm5GemZZVGpuMHQzam80In0.eyJleHAiOjE3Mzc1MTg5MjIsImlhdCI6MTczNzUxODYyMiwianRpIjoiYzgwZGUwMGEtYTFjNy00NzEyLWE3MGItMjhmODIyZTI4YmM1IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo3MDAwL3JlYWxtcy9ldmVudGZsaXgiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZmE1NGJmMDQtMTIxNi00MTM2LWFiNjUtYjcxZGYwZWZjOTczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZ2F0ZXdheS1hcGkiLCJzaWQiOiIyNjM1ZWE0MS1lYTkyLTQ1M2EtYTY4NS1mNDE1NDdiNzRjYzQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIi8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJtYW5hZ2VyIiwiZGVmYXVsdC1yb2xlcy1ldmVudGZsaXgiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJNYW5hZ2VyIFRlc3QiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJtYW5hZ2VyQGVtYWlsLmNvbSIsImdpdmVuX25hbWUiOiJNYW5hZ2VyIiwiZmFtaWx5X25hbWUiOiJUZXN0IiwiZW1haWwiOiJtYW5hZ2VyQGVtYWlsLmNvbSJ9.LVrXN1EJIp9vXOWni2s2lHctYClIlqDp1byY40DqQSMwMJLAGgkqDaSdsARBRL1KeNoKzWJfD7kwwACPBx__rGytGQ6a4YmluqXVdzp6EGm535XaBA7e0Y1eXG3PkVnbCKRj4T8yKAoj1uLvNzH0H_wbjr3gcXkN1wZmhkUgEoBMLuoHQng37ySh6NUeH17G-472FyXqFikZw0g9CtwZAVJEWPTAzAbijzbGVIWAGrZGTPyljG1EQXzQU7yZjrZllYE6GZoiPWo_n6LqI4WBJsw-0MNGzBcE6Q4pM8XG9wj2GXxqPC29S1nD2JzF2NL0wH7u2_rf6l3Ne5dPFzL-Jw
 
 ### Get all orders
-GET {{hostUrl}}/orders/v1/orders
+GET {{hostUrl}}/orders
 Accept: application/json
 
 ### Get order by id
-GET {{hostUrl}}/orders/v1/orders/1
+GET {{hostUrl}}/orders/1
 Accept: application/json
 
 ### Create new order
-POST {{hostUrl}}/orders/v1/orders
+POST {{hostUrl}}/orders
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ### Update order
-PUT {{hostUrl}}/orders/v1/orders/1
+PUT {{hostUrl}}/orders/1
 Content-Type: application/json
 
 ### Delete order
-DELETE {{hostUrl}}/orders/v1/orders/1
+DELETE {{hostUrl}}/orders/1
 Accept: application/json

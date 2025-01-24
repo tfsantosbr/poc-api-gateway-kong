@@ -16,19 +16,19 @@
 
 ## Krakend
 
-- [ ] Estrutura
+- [x] Estrutura
 
-  - [ ] Provisionar o Kong no Docker Compose
+  - [x] Provisionar o Kong no Docker Compose
 
-- [ ] Funcionalidades
+- [x] Funcionalidades
 
-  - [ ] Mapear endpoints de Orders
-  - [ ] Mapear endpoints de Products
-  - [ ] Adicionar Rate Limit no endpoint GET /orders
-  - [ ] Adicionar Rate Limit no endpoint GET /products
-  - [ ] Adicionar Autenticação (Keycloak)
+  - [x] Mapear endpoints de Orders
+  - [x] Mapear endpoints de Products
+  - [x] Adicionar Rate Limit no endpoint GET /orders
+  - [x] Adicionar Rate Limit no endpoint GET /products
+  - [ ] Adicionar Autenticação (Keycloak) na rota POST /orders
   - [ ] Adicionar Autorização (Keycloak) POST /orders (somente manager e email verificado)
-  - [ ] Adicionar Correlation ID
+  - [x] Adicionar Correlation ID
   - [ ] Adicionar Monitoramento
     - [ ] Métricas
     - [ ] Traces
