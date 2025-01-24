@@ -65,6 +65,8 @@ services:
       - KONG_DNS_STALE_TTL=60
       - KONG_DNS_NOT_FOUND_TTL=30
       - KONG_DNS_ERROR_TTL=1
+      - KONG_OPENTELEMETRY_TRACING=all
+      - KONG_OPENTELEMETRY_TRACING_SAMPLING_RATE=1.0
     networks:
       - api-gateway-net
 

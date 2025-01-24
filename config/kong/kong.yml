@@ -1,17 +1,13 @@
 _format_version: "3.0"
 _transform: true
 
-# plugins:
-#   - name: correlation-id
-#     config:
-#       header_name: CorrelationId
-#       generator: uuid#counter
-#       echo_downstream: false
-#   - name: oidc
-#     config:
-#       realm: "eventflix"
-#       client_id: "gateway-api"
-#       discovery: "http://keycloak:8080/realms/eventflix/.well-known/openid-configuration"
+plugins:
+  - name: opentelemetry
+    config:
+      traces_endpoint: http://otel-collector:4318/v1/traces
+      logs_endpoint: http://otel-collector:4318/v1/logs
+      resource_attributes:
+        service.name: kong-gateway-api
 
 services:
   - name: orders-service

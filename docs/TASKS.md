@@ -29,7 +29,7 @@
   - [ ] Adicionar Autenticação (Keycloak) na rota POST /orders
   - [ ] Adicionar Autorização (Keycloak) POST /orders (somente manager e email verificado)
   - [x] Adicionar Correlation ID
-  - [ ] Adicionar Monitoramento
-    - [ ] Métricas
-    - [ ] Traces
-    - [ ] Logs
+  - [x] Adicionar Monitoramento
+    - [x] Métricas
+    - [x] Traces
+    - [x] Logs
